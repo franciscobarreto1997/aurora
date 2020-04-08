@@ -1,16 +1,32 @@
 const carousel = () => {
   const carouselElement = document.querySelector('.carousel');
   const arrows = document.querySelectorAll('.controls i');
-  const images = ['assets/background.jpg']
+  const images = ['assets/background.jpg', 'assets/123.jpg', 'assets/logo.png']
+  let index = 0;
 
-  carouselElement.style.background = `url('${images[0]}')`;
+  carouselElement.style.background = `url('${images[index]}')`;
   carouselElement.style.backgroundSize = 'cover';
 
   arrows.forEach((arrow) => {
     arrow.addEventListener('click', (event) => {
       const elementClass = event.target.attributes.class.value;
-      if (elementClass == "fa-arrow-circle-right") {
-
+      if (elementClass == "fas fa-arrow-circle-right") {
+        index += 1
+        if (index <= images.length - 1) {
+          index = index
+        } else {
+          index = 0
+        }
+        carouselElement.style.background = `url('${images[index]}')`;
+        carouselElement.style.backgroundSize = 'cover';
+      } else {
+        if (index == 0) {
+          index = images.length - 1
+        } else {
+          index -= 1
+        }
+        carouselElement.style.background = `url('${images[index]}')`;
+        carouselElement.style.backgroundSize = 'cover';
       }
     })
   })
