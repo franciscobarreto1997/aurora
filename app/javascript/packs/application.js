@@ -3,3 +3,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
+
+import carousel from '../functions/carousel';
+
+carousel();
