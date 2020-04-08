@@ -25,6 +25,29 @@
     .right {
       height: 100%;
       width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1vh 7vw;
+
+      .images {
+        width: 100%;
+        .carousel {
+          height: 0;
+          width: 100%;
+          padding-bottom: 75%;
+          background-color: white;
+          border-radius: 10px;
+        }
+
+        .controls {
+          text-align: center;
+          padding: 15px;
+          i {
+            font-size: 3vw;
+          }
+        }
+      }
     }
   }
 }
