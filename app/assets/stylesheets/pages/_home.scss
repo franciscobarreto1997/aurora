@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.landing-page-container {
+  .banner {
+    width: 100vw;
+    height: 100vh;
+    background: url('123.jpg');
+    background-size: cover;
+    display: flex;
+    color: white;
+
+    .left {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1vh 7vw;
+
+        .headers {
+          h1 {
+            font-size: 50px;
+          }
+        }
+    }
+
+    .right {
+      height: 100%;
+      width: 50%;
+    }
+  }
+}
