@@ -8,6 +8,7 @@
   padding: 2vw 7vw;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 
   .logo {
     img {
@@ -36,7 +37,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 2;
+    // z-index: 2;
 
     .lines {
       width: 25px;
@@ -77,32 +78,36 @@
   .burguer-menu.open .lines::after {
     transform: rotate(-45deg) translate(10px, 10px);
   }
+}
 
-  .mobile-menu {
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    transition: .5s all;
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #4A86F8;
+  transition: .5s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .mobile-menu-items {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    font-size: 45px;
+    text-align: center;
 
-    .mobile-menu-items {
-      display: flex;
-      flex-direction: column;
-      font-size: 45px;
-      text-align: center;
-
-      a {
-        text-decoration: none;
-        color: black
-      }
+    a {
+      text-decoration: none;
+      color: white;
     }
   }
+}
 
-  .opacity {
-    opacity: 0;
-  }
+.opacity {
+  opacity: 0;
 }
 
 @media (max-width: 1024px) {

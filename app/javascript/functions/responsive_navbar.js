@@ -1,4 +1,4 @@
-// import disableScroll from 'disable-scroll';
+import disableScroll from 'disable-scroll';
 
 const responsiveNavbar = () => {
   const burguerMenu = document.querySelector('.burguer-menu');
@@ -7,10 +7,8 @@ const responsiveNavbar = () => {
   let menuOpen = false;
 
   const items = `<div class="mobile-menu-items">
-                    <a href="/">Projects</a>
-                    <a href="/articles">Articles</a>
-                    <a href="/contact">Contact</a>
-                    <a href="https://github.com/franciscobarreto1997"><i class="fab fa-github"></i></a>
+                    <a href="/">About</a>
+                    <a href="/articles">Login</a>
                   </div>`
 
   if (burguerMenu) {
