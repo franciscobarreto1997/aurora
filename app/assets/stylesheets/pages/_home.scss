@@ -61,6 +61,33 @@
       }
     }
   }
+
+  .features {
+    width: 100%;
+    padding: 7vh 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .feature {
+      text-align: center;
+      width: 20vw;
+      i {
+        font-size: 50px;
+        color: #1F95EF;
+        margin-bottom: 15px;
+      }
+
+      h5 {
+        font-size: 30px;
+      }
+
+      p {
+        color: #4B525A;
+      }
+
+    }
+  }
 }
 
 @media (max-width: 1024px) {
