@@ -1,12 +1,13 @@
 .landing-page-container{
   background-color: white;
-  padding: 5vh 7vw;
+  // padding: 5vh 7vw;
   .header {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5vh 7vw;
 
     h1 {
       font-weight: 700;
@@ -32,6 +33,23 @@
       margin-top: 15px;
     }
   }
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #0094D2;
+    margin-top: 150px;
+    padding: 5vh 0vw;
+    .image {
+      background: url('landing-page-image.png');
+      background-size: cover;
+      width: 60vw;
+      height: 0;
+      padding-bottom: 95.45%;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -50,14 +68,23 @@
         font-size: 20px;
       }
     }
+    .image-container {
+      margin-top: 60px;
+      padding: 5vh 0vw;
+      .image {
+        width: 90vw;
+        padding-bottom: 142.73%;
+    }
+  }
   }
 }
 
 @media (max-width: 550px) {
   .landing-page-container {
-    padding: 5vh 5vw;
     .header {
       justify-content: flex-start;
+      padding: 5vh 5vw;
+
       h1 {
         font-size: 12vw;
         text-align: left;
@@ -75,6 +102,14 @@
         width: 100%;
         text-align: center;
         padding: 10px 60px;
+      }
+    }
+
+    .image-container {
+      margin-top: 5vh;
+
+      .image {
+
       }
     }
   }
