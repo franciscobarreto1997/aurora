@@ -1,3 +1,5 @@
+import disableScroll from 'disable-scroll';
+
 const responsiveNavbar = () => {
   const burguerMenu = document.querySelector('.burguer-menu');
   const lines = document.querySelector('.lines');
