@@ -1,0 +1,12 @@
+<div class="navbar">
+  <%= link_to root_path do %>
+    <%= image_tag "aurora-logo-grey.png" %>
+  <% end %>
+  <div class="navbar-items">
+    <%= link_to "Sign up", new_user_registration_path, id: "sign-up-btn" %>
+    <%= link_to "Login", new_user_session_path, id: "login-btn" %>
+  </div>
+  <div class="burguer-menu" hidden>
+    <div class="lines"></div>
+  </div>
+</div>
