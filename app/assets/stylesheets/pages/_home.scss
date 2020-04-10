@@ -50,6 +50,28 @@
       padding-bottom: 95.45%;
     }
   }
+
+  .description {
+    background-color: #0094D2;
+    padding: 3vh 7vw;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-weight: 700;
+      color: white;
+      font-size: 60px;
+    }
+    p {
+      margin-top: 20px;
+      color: white;
+      font-size: 20px;
+      width: 700px;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -74,8 +96,18 @@
       .image {
         width: 90vw;
         padding-bottom: 142.73%;
+      }
     }
-  }
+
+    .description {
+      h1 {
+        font-size: 7vw;
+      }
+
+      p {
+        font-size: 2.5vw;
+      }
+    }
   }
 }
 
@@ -110,6 +142,20 @@
 
       .image {
 
+      }
+    }
+
+    .description {
+      justify-content: flex-start;
+      text-align: left;
+      padding: 3vh 5vw;
+      h1 {
+        font-size: 13vw;
+      }
+
+      p {
+        width: auto;
+        font-size: 5vw;
       }
     }
   }
