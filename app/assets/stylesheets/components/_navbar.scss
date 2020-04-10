@@ -1,0 +1,48 @@
+.navbar {
+  justify-content: space-between;
+  height: 120px;
+
+  img {
+    height: 100px;
+    width: 210px;
+  }
+
+  .navbar-items {
+    height: auto;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #login-btn {
+      text-decoration: none;
+      color: white;
+      background-color: #1D2D35;
+      padding: 5px 30px;
+      border: none;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    #sign-up-btn {
+      text-decoration: none;
+      color: #1D2D35;
+      background-color: transparent;
+      padding: 5px 30px;
+      border: 1px solid #1D2D35;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    .navbar-items {
+      display: none;
+    }
+    .burguer-menu {
+      display: flex;
+    }
+  }
+}
