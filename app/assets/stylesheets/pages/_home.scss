@@ -72,6 +72,34 @@
       width: 700px;
     }
   }
+
+  .advantages {
+    display: flex;
+    background-color: #0094D2;
+    padding: 3vh 7vw;
+    color: white;
+    height: 500px;
+
+    .left {
+      width: 50%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      #small-icon {
+        font-size: 50px;
+        margin-top: 60px;
+      }
+    }
+    .right {
+      width: 50%;
+      text-align: center;
+    }
+
+    #big-icon {
+      font-size: 70px;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
