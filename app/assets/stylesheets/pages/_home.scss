@@ -99,6 +99,21 @@
       font-size: 70px;
     }
   }
+
+  .call-to-action {
+    background-color: #0094D2;
+    text-align: center;
+    padding: 10vh 7vw;
+
+    a {
+      color: #0094D2;
+      background-color: white;
+      text-decoration: none;
+      padding: 7px 60px;
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -201,6 +216,15 @@
 
       #big-icon {
         font-size: 15vw;
+      }
+    }
+
+    .call-to-action {
+      padding: 10vh 5vw;
+      a {
+        width: 100%;
+        font-size: 20px;
+        display: inline-block;
       }
     }
   }

@@ -8,7 +8,7 @@ const animeLandingPage = () => {
   let myTimeline = anime.timeline({
     targets: smallIcons,
     delay: function(el, i) { return i * 200 },
-    duration: 500, // Can be inherited
+    duration: 1000, // Can be inherited
     easing: 'easeOutExpo', // Can be inherited
     direction: 'alternate', // Is not inherited
     loop: true // Is not inherited
