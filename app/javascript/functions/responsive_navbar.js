@@ -7,8 +7,8 @@ const responsiveNavbar = () => {
   let menuOpen = false;
 
   const items = `<div class="mobile-menu-items">
-                    <a href="/">Sign up</a>
-                    <a href="/articles">Login</a>
+                    <a href="/users/sign_up">Sign up</a>
+                    <a href="/users/sign_in">Login</a>
                   </div>`
 
   if (burguerMenu) {
