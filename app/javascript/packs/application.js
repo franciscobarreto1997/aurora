@@ -12,3 +12,7 @@ import animeLandingPage from '../functions/animejs_landing_page';
 responsiveNavbar();
 animateOnScroll();
 animeLandingPage();
+
+window.addEventListener('resize', () => {
+  animeLandingPage();
+})

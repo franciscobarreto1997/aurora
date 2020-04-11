@@ -78,7 +78,6 @@
     background-color: #0094D2;
     padding: 3vh 7vw;
     color: white;
-    height: 500px;
 
     .left {
       width: 50%;
@@ -184,6 +183,24 @@
       p {
         width: auto;
         font-size: 5vw;
+      }
+    }
+
+    .advantages {
+      padding: 3vh 3vw;
+
+      .left {
+        #small-icon {
+          font-size: 10vw;
+        }
+      }
+      .right {
+        width: 50%;
+        text-align: center;
+      }
+
+      #big-icon {
+        font-size: 15vw;
       }
     }
   }

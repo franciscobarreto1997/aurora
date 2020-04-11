@@ -1,7 +1,9 @@
 import anime from 'animejs/lib/anime.es.js';
 
 const animeLandingPage = () => {
+  const advantages = document.querySelector('.landing-page-container .advantages .right')
   const smallIcons = document.querySelectorAll('.landing-page-container .advantages #small-icon')
+  console.log(advantages.offsetWidth)
 
   let myTimeline = anime.timeline({
     targets: smallIcons,
@@ -14,13 +16,13 @@ const animeLandingPage = () => {
 
   myTimeline
     .add({
-      translateX: 700,
+      translateX: advantages.offsetWidth,
       // override the easing parameter
       easing: 'spring',
     })
     .add({
       opacity: .5,
-      scale: 2
+      scale: 1
     })
     .add({
       translateX: 0,
