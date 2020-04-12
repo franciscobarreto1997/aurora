@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_105625) do
+ActiveRecord::Schema.define(version: 2020_04_12_175758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 2020_04_12_105625) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_messages_on_subject_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "school_admins", force: :cascade do |t|
@@ -87,9 +93,10 @@ ActiveRecord::Schema.define(version: 2020_04_12_105625) do
     t.string "first_name"
     t.string "last_name"
     t.bigint "school_class_id", null: false
-    t.string "role"
+    t.bigint "role_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
     t.index ["school_class_id"], name: "index_users_on_school_class_id"
   end
 
@@ -107,5 +114,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_105625) do
   add_foreign_key "schools", "school_admins"
   add_foreign_key "subjects", "school_classes"
   add_foreign_key "subjects", "users"
+  add_foreign_key "users", "roles"
   add_foreign_key "users", "school_classes"
 end
