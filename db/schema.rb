@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_183807) do
+ActiveRecord::Schema.define(version: 2020_04_12_105625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2020_04_11_183807) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "school_admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_school_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_school_admins_on_reset_password_token", unique: true
+  end
+
   create_table "school_classes", force: :cascade do |t|
     t.string "name"
     t.bigint "school_id", null: false
@@ -48,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_183807) do
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "school_admin_id", null: false
+    t.index ["school_admin_id"], name: "index_schools_on_school_admin_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -90,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_183807) do
   add_foreign_key "messages", "subjects"
   add_foreign_key "messages", "users"
   add_foreign_key "school_classes", "schools"
+  add_foreign_key "schools", "school_admins"
   add_foreign_key "subjects", "school_classes"
   add_foreign_key "subjects", "users"
   add_foreign_key "users", "school_classes"
