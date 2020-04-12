@@ -28,6 +28,18 @@
 
       .form-inputs {
         margin-top: 15px;
+
+        .name-inputs {
+          display: flex;
+          justify-content: space-between;
+
+          .user_first_name {
+            width: 48%;
+          }
+          .user_last_name {
+            width: 48%;
+          }
+        }
       }
 
       .form-group input {
