@@ -1,4 +1,4 @@
-.sign-up-container {
+.login-container {
   width: 100vw;
   height: 100vh;
   padding: 5vh 10vw;
@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 
   img {
     height: 100px;
@@ -26,24 +25,24 @@
       color: #1D2D35;
     }
 
-      .form-inputs {
-        margin-top: 15px;
-      }
+    .form-inputs {
+      margin-top: 15px;
+    }
 
-      .form-group input {
-        height: 45px;
-      }
+    .form-group input {
+      height: 45px;
+    }
 
-      .form-actions input {
-        width: 100%;
-        color: white;
-        background-color: #2DA562;
-        border-radius: 20px;
-        height: 40px;
-      }
+    .form-actions input {
+      width: 100%;
+      color: white;
+      background-color: #2DA562;
+      border-radius: 20px;
+      height: 40px;
+    }
   }
 
-  .sign-up-page-link {
+  .login-page-link {
     text-decoration: none;
     color: white;
     margin-top: 20px;
@@ -51,7 +50,7 @@
 }
 
 @media (max-width: 550px) {
-  .sign-up-container {
+  .login-container {
     padding: 5vh 5vw;
     // height: auto;
 
