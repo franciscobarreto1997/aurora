@@ -25,9 +25,8 @@
                       placeholder: "Last name" %>
         </div>
         <%= f.association :role,
-                    as: :check_boxes,
-                    label: false,
-                    required: true %>
+                          as: :radio_buttons,
+                          required: true %>
         <%= f.input :password,
                     required: true,
                     label: false,
