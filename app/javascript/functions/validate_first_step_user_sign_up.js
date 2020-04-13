@@ -3,7 +3,7 @@ import validateSecondStepUserSignUp from './validate_second_step_user_sign_up';
 let validations = [];
 
 const validateFirstStepUserSignUp = () => {
-  const nextButton = document.getElementById('next-btn');
+  const nextButton = document.getElementById('step-1-next-btn');
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
 
   if (nextButton) {
