@@ -8,8 +8,7 @@ const validateFirstStepUserSignUp = () => {
 
     nextButton.addEventListener('click', (event) => {
       event.preventDefault();
-      validateRoleButtons();
-      // validateInputs(formGroups);
+      validateAll(formGroups)
     })
   }
 }
@@ -22,22 +21,22 @@ const validateInputs = (formGroups) => {
 
       switch(groupId) {
         case "user_email":
-        validateEmail(userInput, groupId);
-        break;
+          validateEmail(userInput, groupId);
+          break;
         case "user_first_name":
-        validateName(userInput, groupId);
-        break;
+          validateName(userInput, groupId);
+          break;
         case "user_last_name":
-        validateName(userInput, groupId);
-        break;
+          validateName(userInput, groupId);
+          break;
         case "user_password":
-        validatePassword(userInput, groupId);
-        break;
+          validatePassword(userInput, groupId);
+          break;
         case "user_password_confirmation":
-        validatePasswordConfirmation(userInput, groupId);
-        break;
+          validatePasswordConfirmation(userInput, groupId);
+          break;
         default:
-        break;
+          break;
       }
     })
   })
@@ -56,7 +55,7 @@ const validatePassword = (input, id) => {
 }
 
 const validatePasswordConfirmation = (input, id) => {
-  (input == document.querySelector('form#new_user .form-inputs .form-group #user_password').value) ? validate(id) : inValidate(id)
+  ((input == document.querySelector('form#new_user .form-inputs .form-group #user_password').value) && (input.length > 1)) ? validate(id) : inValidate(id)
 }
 
 const validate = (id) => {
@@ -84,7 +83,9 @@ const validateRoleButtons = () => {
     }
   })
   if (!selected) {
-    roleFieldSet.insertAdjacentHTML('afterend', '<p>Please select one of the options</p>');
+    if (!document.querySelector('form#new_user p')) {
+      roleFieldSet.insertAdjacentHTML('afterend', '<p>Please select either Student or Teacher</p>');
+    }
   } else {
     document.querySelector('form#new_user p').remove();
   }
@@ -94,6 +95,34 @@ const validateRoleButtons = () => {
   if (errorMessage) {
     errorMessage.style.color = 'red';
   }
+}
+
+const validateAll = (formGroups) => {
+  formGroups.forEach((group) => {
+    const groupId = group.firstChild.id;
+    const userInput = group.firstChild.value;
+
+    switch(groupId) {
+      case "user_email":
+        validateEmail(userInput, groupId);
+        break;
+      case "user_first_name":
+        validateName(userInput, groupId);
+        break;
+      case "user_last_name":
+        validateName(userInput, groupId);
+        break;
+      case "user_password":
+        validatePassword(userInput, groupId);
+        break;
+      case "user_password_confirmation":
+        validatePasswordConfirmation(userInput, groupId);
+        break;
+      default:
+      break;
+    }
+  })
+  validateRoleButtons()
 }
 
 export default validateFirstStepUserSignUp;
