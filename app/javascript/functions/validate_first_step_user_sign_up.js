@@ -15,30 +15,42 @@ const validateFirstStepUserSignUp = () => {
 
 const validateInputs = (formGroups) => {
   formGroups.forEach((group) => {
-    group.firstChild.addEventListener('blur', (event) => {
-      const groupId = group.firstChild.id;
-      const userInput = group.firstChild.value;
+    if (group.firstChild.name == "user[role_id]") {
+      group.childNodes.forEach((button) => {
+        if (button.classList.length > 0) {
+          if (button.classList.contains("role-btn-selected")) {
+            button.style.border = '1px solid #55E5A5 !important'
+          } else {
+            button.style.border = '1px solid #DADEE3 !important'
+          }
+        }
+      })
+    } else {
+      group.firstChild.addEventListener('blur', (event) => {
+        const groupId = group.firstChild.id;
+        const userInput = group.firstChild.value;
 
-      switch(groupId) {
-        case "user_email":
+        switch(groupId) {
+          case "user_email":
           validateEmail(userInput, groupId);
           break;
-        case "user_first_name":
+          case "user_first_name":
           validateName(userInput, groupId);
           break;
-        case "user_last_name":
+          case "user_last_name":
           validateName(userInput, groupId);
           break;
-        case "user_password":
+          case "user_password":
           validatePassword(userInput, groupId);
           break;
-        case "user_password_confirmation":
+          case "user_password_confirmation":
           validatePasswordConfirmation(userInput, groupId);
           break;
-        default:
-        break;
-      }
-    })
+          default:
+          break;
+        }
+      })
+    }
   })
 }
 
