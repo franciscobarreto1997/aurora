@@ -1,14 +1,21 @@
+import validateSecondStepUserSignUp from './validate_second_step_user_sign_up';
+
+let validations = [];
+
 const validateFirstStepUserSignUp = () => {
   const nextButton = document.getElementById('next-btn');
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
-  let validations = 0;
 
   if (nextButton) {
     validateInputs(formGroups);
 
     nextButton.addEventListener('click', (event) => {
       event.preventDefault();
-      validateAll(formGroups)
+      validateAll(formGroups);
+
+      if (validations.length === 6) {
+        validateSecondStepUserSignUp();
+      }
     })
   }
 }
@@ -59,15 +66,24 @@ const validatePasswordConfirmation = (input, id) => {
 }
 
 const validate = (id) => {
-  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`)
+  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`);
   input.classList.remove('is-invalid');
   input.classList.add('is-valid');
+  if (!validations.includes(id)) {
+    validations.push(id)
+  }
+  console.log(validations.length)
 }
 
 const inValidate = (id) => {
-  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`)
+  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`);
   input.classList.remove('is-valid');
   input.classList.add('is-invalid');
+  if (validations.includes(id)) {
+    const index = validations.indexOf(id);
+    validations.splice(index, 1);
+  }
+  console.log(validations.length)
 }
 
 
@@ -77,9 +93,11 @@ const validateRoleButtons = () => {
   let selected = false;
 
   roleButtons.forEach((button) => {
-    console.log(button.classList.contains("role-btn-selected"))
     if (button.classList.contains("role-btn-selected")) {
       selected = true;
+      if (!validations.includes('role_button')) {
+        validations.push('role_button');
+      }
     }
   })
   if (!selected) {
@@ -87,7 +105,9 @@ const validateRoleButtons = () => {
       roleFieldSet.insertAdjacentHTML('afterend', '<p>Please select either Student or Teacher</p>');
     }
   } else {
-    document.querySelector('form#new_user p').remove();
+    if (document.querySelector('form#new_user p')) {
+      document.querySelector('form#new_user p').remove();
+    }
   }
 
   const errorMessage = document.querySelector('form#new_user p');
