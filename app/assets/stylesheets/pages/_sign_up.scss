@@ -86,11 +86,27 @@
           }
         }
       }
-      #next-btn {
+      #step-1-next-btn {
         width: 100%;
         color: white;
         background-color: #2DA562;
         border-radius: 20px;
+        height: 40px;
+      }
+
+      #step-2-next-btn {
+        width: 48%;
+        color: white;
+        background-color: #2DA562;
+        border-radius: 15px;
+        height: 40px;
+      }
+
+      #step-2-previous-btn {
+        width: 48%;
+        color: white;
+        background-color: #2DA562;
+        border-radius: 15px;
         height: 40px;
       }
 
@@ -104,6 +120,15 @@
         background-color: #2DA562;
         border-radius: 20px;
         height: 40px;
+      }
+
+      .new-form-actions {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .user_school_code {
+        margin-top: 15px;
       }
   }
 
