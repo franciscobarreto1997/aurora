@@ -8,6 +8,7 @@ const validateFirstStepUserSignUp = () => {
 
     nextButton.addEventListener('click', (event) => {
       event.preventDefault();
+      validateRoleButtons();
       // validateInputs(formGroups);
     })
   }
@@ -15,42 +16,30 @@ const validateFirstStepUserSignUp = () => {
 
 const validateInputs = (formGroups) => {
   formGroups.forEach((group) => {
-    if (group.firstChild.name == "user[role_id]") {
-      group.childNodes.forEach((button) => {
-        if (button.classList.length > 0) {
-          if (button.classList.contains("role-btn-selected")) {
-            button.style.border = '1px solid #55E5A5 !important'
-          } else {
-            button.style.border = '1px solid #DADEE3 !important'
-          }
-        }
-      })
-    } else {
-      group.firstChild.addEventListener('blur', (event) => {
-        const groupId = group.firstChild.id;
-        const userInput = group.firstChild.value;
+    group.firstChild.addEventListener('blur', (event) => {
+      const groupId = group.firstChild.id;
+      const userInput = group.firstChild.value;
 
-        switch(groupId) {
-          case "user_email":
-          validateEmail(userInput, groupId);
-          break;
-          case "user_first_name":
-          validateName(userInput, groupId);
-          break;
-          case "user_last_name":
-          validateName(userInput, groupId);
-          break;
-          case "user_password":
-          validatePassword(userInput, groupId);
-          break;
-          case "user_password_confirmation":
-          validatePasswordConfirmation(userInput, groupId);
-          break;
-          default:
-          break;
-        }
-      })
-    }
+      switch(groupId) {
+        case "user_email":
+        validateEmail(userInput, groupId);
+        break;
+        case "user_first_name":
+        validateName(userInput, groupId);
+        break;
+        case "user_last_name":
+        validateName(userInput, groupId);
+        break;
+        case "user_password":
+        validatePassword(userInput, groupId);
+        break;
+        case "user_password_confirmation":
+        validatePasswordConfirmation(userInput, groupId);
+        break;
+        default:
+        break;
+      }
+    })
   })
 }
 
@@ -80,6 +69,31 @@ const inValidate = (id) => {
   const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`)
   input.classList.remove('is-valid');
   input.classList.add('is-invalid');
+}
+
+
+const validateRoleButtons = () => {
+  const roleButtons = document.querySelectorAll('.user_role .form-check');
+  const roleFieldSet = document.querySelector('.user_role');
+  let selected = false;
+
+  roleButtons.forEach((button) => {
+    console.log(button.classList.contains("role-btn-selected"))
+    if (button.classList.contains("role-btn-selected")) {
+      selected = true;
+    }
+  })
+  if (!selected) {
+    roleFieldSet.insertAdjacentHTML('afterend', '<p>Please select one of the options</p>');
+  } else {
+    document.querySelector('form#new_user p').remove();
+  }
+
+  const errorMessage = document.querySelector('form#new_user p');
+
+  if (errorMessage) {
+    errorMessage.style.color = 'red';
+  }
 }
 
 export default validateFirstStepUserSignUp;
