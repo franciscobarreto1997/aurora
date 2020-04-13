@@ -3,9 +3,9 @@ const validateFirstStepUserSignUp = () => {
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
   let validations = 0;
 
-  validateInputs(formGroups);
-
   if (nextButton) {
+    validateInputs(formGroups);
+
     nextButton.addEventListener('click', (event) => {
       event.preventDefault();
       // validateInputs(formGroups);
@@ -19,22 +19,22 @@ const validateInputs = (formGroups) => {
       const groupId = group.firstChild.id;
       const userInput = group.firstChild.value;
 
-      switch(group.firstChild.id) {
+      switch(groupId) {
         case "user_email":
-        validateEmail(userInput);
-        break;
+          validateEmail(userInput, groupId);
+          break;
         case "user_first_name":
-        validateName(userInput);
-        break;
+          validateName(userInput, groupId);
+          break;
         case "user_last_name":
-        validateName(userInput);
-        break;
+          validateName(userInput, groupId);
+          break;
         case "user_password":
-        validatePassword(userInput);
-        break;
+          validatePassword(userInput, groupId);
+          break;
         case "user_password_confirmation":
-        validatePasswordConfirmation(userInput);
-        break;
+          validatePasswordConfirmation(userInput, groupId);
+          break;
         default:
         break;
       }
@@ -42,20 +42,32 @@ const validateInputs = (formGroups) => {
   })
 }
 
-const validateEmail = (input) => {
-
+const validateEmail = (input, id) => {
+  ((/.+@.+\.\w{2,3}/).test(input)) ? validate(id) : inValidate(id)
 }
 
-const validateName = (input) => {
-
+const validateName = (input, id) => {
+  (input !== "") ? validate(id) : inValidate(id)
 }
 
-const validatePassword = (input) => {
-
+const validatePassword = (input, id) => {
+  ((/(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/).test(input)) ? validate(id) : inValidate(id)
 }
 
-const validatePasswordConfirmation = (input) => {
+const validatePasswordConfirmation = (input, id) => {
+  (input == document.querySelector('form#new_user .form-inputs .form-group #user_password').value) ? validate(id) : inValidate(id)
+}
 
+const validate = (id) => {
+  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`)
+  input.classList.remove('is-invalid');
+  input.classList.add('is-valid');
+}
+
+const inValidate = (id) => {
+  const input = document.querySelector(`form#new_user .form-inputs .form-group #${id}`)
+  input.classList.remove('is-valid');
+  input.classList.add('is-invalid');
 }
 
 export default validateFirstStepUserSignUp;
