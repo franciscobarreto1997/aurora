@@ -1,3 +1,5 @@
+import validateThirdStepUserSignUp from './validate_third_step_user_sign_up';
+
 const form = document.querySelector('form#new_user');
 const formInputs = document.querySelector('form#new_user .form-inputs');
 const formActions = document.querySelector('form#new_user .form-actions');
@@ -34,11 +36,9 @@ const validateSchoolCode = () => {
     if (schoolCodeInput.value.length == 10) {
       schoolCodeInput.classList.remove('is-invalid')
       schoolCodeInput.classList.add('is-valid')
-      return true
     } else {
       schoolCodeInput.classList.remove('is-valid')
       schoolCodeInput.classList.add('is-invalid')
-      return false
     }
   })
 }
@@ -59,7 +59,10 @@ const buttonActions = () => {
         newFormActions.remove();
         schoolCodeInput.remove();
       } else {
-
+        if (document.querySelector('form#new_user .user_school_code #user_school_code').value.length == 10) {
+          form.classList.remove('fade-in-right');
+          validateThirdStepUserSignUp();
+        }
       }
     })
   })
