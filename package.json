@@ -8,6 +8,7 @@
     "@rails/webpacker": "5.0.1",
     "animejs": "^3.2.0",
     "aos": "^2.3.4",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "disable-scroll": "^0.5.1",
     "jquery": "^3.4.1",

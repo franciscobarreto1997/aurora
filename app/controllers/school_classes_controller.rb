@@ -1,4 +1,7 @@
 class SchoolClassesController < ApplicationController
+
+  skip_before_action :verify_authenticity_token
+
   def index
   end
 
@@ -21,6 +24,13 @@ class SchoolClassesController < ApplicationController
   end
 
   def fetch_for_sign_up
-
+    school_code = params[:school_code]
+    classes = SchoolClass.where(school_code: school_code)
+    classes_arr = []
+    classes.each do |school_class|
+      classes_arr << school_class
+    end
+    p classes_arr
+    render json: classes_arr
   end
 end
