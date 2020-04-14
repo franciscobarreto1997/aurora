@@ -29,3 +29,6 @@ end
 School.create!(name: "Escola do Bolinha", code: generate_school_code, school_admin_id: SchoolAdmin.first.id)
 
 SchoolClass.create!(name: "10ºL", school_id: School.first.id, school_code: School.first.code)
+
+SchoolClass.create!(name: "11ºJ", school_id: School.first.id, school_code: generate_school_code)
+
