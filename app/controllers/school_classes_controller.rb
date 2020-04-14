@@ -30,7 +30,6 @@ class SchoolClassesController < ApplicationController
     classes.each do |school_class|
       classes_arr << school_class
     end
-    p classes_arr
     render json: classes_arr
   end
 end
