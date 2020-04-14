@@ -1,9 +1,9 @@
-const validateSecondStepUserSignUp = () => {
-  const form = document.querySelector('form#new_user');
-  const formInputs = document.querySelector('form#new_user .form-inputs');
-  const formActions = document.querySelector('form#new_user .form-actions');
+const form = document.querySelector('form#new_user');
+const formInputs = document.querySelector('form#new_user .form-inputs');
+const formActions = document.querySelector('form#new_user .form-actions');
 
-  form.classList.add('rotate-vert-center');
+const validateSecondStepUserSignUp = () => {
+  form.classList.add('fade-in-right');
   formInputs.setAttribute('hidden', '')
   formActions.setAttribute('hidden', '')
 
@@ -24,6 +24,7 @@ const validateSecondStepUserSignUp = () => {
   formInputs.insertAdjacentHTML('afterend', schoolCodeInput);
 
   validateSchoolCode()
+  buttonActions()
 }
 
 const validateSchoolCode = () => {
@@ -39,6 +40,28 @@ const validateSchoolCode = () => {
       schoolCodeInput.classList.add('is-invalid')
       return false
     }
+  })
+}
+
+const buttonActions = () => {
+  const buttons = document.querySelectorAll('form#new_user .new-form-actions input');
+  const newFormActions = document.querySelector('form#new_user .new-form-actions');
+  const schoolCodeInput = document.querySelector('form#new_user .user_school_code');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (event.target.id == "step-2-previous-btn") {
+        form.classList.remove('fade-in-right');
+        form.classList.add('fade-in-left');
+        formInputs.removeAttribute('hidden');
+        formActions.removeAttribute('hidden');
+        newFormActions.remove();
+        schoolCodeInput.remove();
+      } else {
+
+      }
+    })
   })
 }
 

@@ -5,6 +5,7 @@ let validations = [];
 const validateFirstStepUserSignUp = () => {
   const nextButton = document.getElementById('step-1-next-btn');
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
+  const form = document.querySelector('form#new_user');
 
   if (nextButton) {
     validateInputs(formGroups);
@@ -14,6 +15,9 @@ const validateFirstStepUserSignUp = () => {
       validateAll(formGroups);
 
       if (validations.length === 6) {
+        if (form.classList.contains('fade-in-left')) {
+          form.classList.remove('fade-in-left');
+        }
         validateSecondStepUserSignUp();
       }
     })
