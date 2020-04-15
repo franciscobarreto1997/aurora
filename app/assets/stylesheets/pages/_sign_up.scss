@@ -162,7 +162,7 @@
 @media (max-width: 550px) {
   .sign-up-container {
     padding: 5vh 5vw;
-    // height: auto;
+    height: 120vh;
 
     form {
       width: 100%;
@@ -170,6 +170,10 @@
 
       .form-group input {
         height: 55px;
+      }
+
+      .user_password input {
+        font-size: 3vw;
       }
 
       .form-actions input {

@@ -56,9 +56,10 @@ const fetchSchoolClasses = () => {
 const buttonActions = () => {
   const buttons = form.querySelectorAll('.last-form-actions input');
   const lastFormActions = form.querySelector('.last-form-actions');
-  const dropDownMenu = form.querySelector('.user_school_class');
+  const selectFormGroup = form.querySelector('.user_school_class');
   const schoolCodeInput = form.querySelector('.user_school_code');
   const previousFormActions = form.querySelector('.new-form-actions');
+  const dropDownMenu = selectFormGroup.querySelector('#user_school_class_id');
 
   if (buttons) {
     buttons.forEach((button) => {
@@ -70,9 +71,22 @@ const buttonActions = () => {
             form.classList.remove('fade-in-left');
           }, 500)
           lastFormActions.remove();
-          dropDownMenu.remove();
+          selectFormGroup.remove();
           schoolCodeInput.removeAttribute('hidden');
           previousFormActions.removeAttribute('hidden');
+        } else {
+          if (dropDownMenu.options[dropDownMenu.selectedIndex].value != "") {
+            if (form.querySelector('p')) {
+              form.querySelector('p').remove();
+            }
+            form.submit()
+          } else {
+            if (form.querySelector('p')) {
+              form.querySelector('p').remove();
+            }
+            selectFormGroup.insertAdjacentHTML('afterend', '<p>Please select a class</p>')
+            form.querySelector('p').style.color = 'red';
+          }
         }
       })
     })

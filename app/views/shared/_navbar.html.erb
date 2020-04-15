@@ -5,6 +5,7 @@
   <div class="navbar-items">
     <%= link_to "Sign up", new_user_registration_path, id: "sign-up-btn" %>
     <%= link_to "Login", new_user_session_path, id: "login-btn" %>
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
   <div class="burguer-menu" hidden>
     <div class="lines"></div>
