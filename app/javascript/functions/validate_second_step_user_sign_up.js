@@ -13,6 +13,9 @@ const validateSecondStepUserSignUp = () => {
 
 const hidePreviousStep = () => {
   form.classList.add('fade-in-right');
+  setTimeout(() => {
+    form.classList.remove('fade-in-right');
+  }, 500)
   formInputs.setAttribute('hidden', '')
   formActions.setAttribute('hidden', '')
 }
@@ -58,7 +61,7 @@ const buttonActions = () => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
       if (event.target.id == "step-2-previous-btn") {
-        form.classList.remove('fade-in-right');
+        removeTransitionClasses();
         form.classList.add('fade-in-left');
         formInputs.removeAttribute('hidden');
         formActions.removeAttribute('hidden');
@@ -66,15 +69,17 @@ const buttonActions = () => {
         schoolCodeInput.remove();
       } else {
         if (document.querySelector('form#new_user .user_school_code #user_school_code').value.length == 10) {
-          form.classList.remove('fade-in-right');
-          if (form.classList.contains('fade-in-left')) {
-            form.classList.remove('fade-in-left');
-          }
+          removeTransitionClasses()
           validateThirdStepUserSignUp();
         }
       }
     })
   })
+}
+
+const removeTransitionClasses = () => {
+  form.classList.contains('fade-in-left') ? form.classList.remove('fade-in-left') : null
+  form.classList.contains('fade-in-right') ? form.classList.remove('fade-in-right') : null
 }
 
 

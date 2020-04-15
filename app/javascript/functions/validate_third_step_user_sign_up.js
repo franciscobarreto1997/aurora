@@ -12,12 +12,13 @@ const validateThirdStepUserSignUp = () => {
 const hidePreviousStep = () => {
   const formInput = document.querySelector('form#new_user .user_school_code');
   const formActions = document.querySelector('form#new_user .new-form-actions');
+  form.classList.add('fade-in-right');
+  formInput.setAttribute('hidden', '');
+  formActions.setAttribute('hidden', '');
 
   setTimeout(() => {
-    form.classList.add('fade-in-right');
-    formInput.setAttribute('hidden', '');
-    formActions.setAttribute('hidden', '');
-  }, 100)
+    form.classList.remove('fade-in-right');
+  }, 500)
 }
 
 const insertNewElements = () => {
@@ -64,8 +65,10 @@ const buttonActions = () => {
       button.addEventListener('click', (event) => {
         event.preventDefault();
         if (event.target.id == "step-3-previous-btn") {
-          form.classList.remove('fade-in-right');
           form.classList.add('fade-in-left');
+          setTimeout(() => {
+            form.classList.remove('fade-in-left');
+          }, 500)
           lastFormActions.remove();
           dropDownMenu.remove();
           schoolCodeInput.removeAttribute('hidden');
