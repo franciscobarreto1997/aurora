@@ -24,9 +24,17 @@
                       label: false,
                       placeholder: "Last name" %>
         </div>
-        <%= f.association :role,
-                          as: :radio_buttons,
-                          required: true %>
+        <div class="form-group radio_buttons required user_role">
+          <input type="hidden" name="user[role_id]" value="">
+          <div class="form-check">
+            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="13" name="user[role_id]" id="user_role_id_13">
+            <label class="form-check-label collection_radio_buttons" for="user_role_id_13">Student</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="14" name="user[role_id]" id="user_role_id_14">
+            <label class="form-check-label collection_radio_buttons" for="user_role_id_14">Teacher</label>
+          </div>
+        </div>
         <%= f.input :password,
                     required: true,
                     label: false,

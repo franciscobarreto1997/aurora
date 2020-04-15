@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Role.destroy_all
+# Role.destroy_all
 SchoolClass.destroy_all
 School.destroy_all
 SchoolAdmin.destroy_all
 
-Role.create!(name: "Student")
-Role.create!(name: "Teacher")
+# Role.create!(name: "Student")
+# Role.create!(name: "Teacher")
 
 SchoolAdmin.create!(email: "franciscoantunesbarreto1997@gmail.com", password: "macklemore123")
 
