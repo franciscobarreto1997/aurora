@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'schools/index'
+  get 'schools/new'
+  get 'schools/create'
+  get 'schools/show'
+  get 'schools/edit'
+  get 'schools/update'
+  get 'schools/destroy'
   resources :school_classes
   devise_for :school_admins
   devise_for :users
