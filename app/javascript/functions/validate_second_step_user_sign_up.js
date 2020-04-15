@@ -61,6 +61,9 @@ const buttonActions = () => {
       } else {
         if (document.querySelector('form#new_user .user_school_code #user_school_code').value.length == 10) {
           form.classList.remove('fade-in-right');
+          if (form.classList.contains('fade-in-left')) {
+            form.classList.remove('fade-in-left');
+          }
           validateThirdStepUserSignUp();
         }
       }
