@@ -1,13 +1,15 @@
 import validateThirdStepUserSignUp from './validate_third_step_user_sign_up';
+import axios from 'axios';
 
 const form = document.querySelector('form#new_user');
 const formInputs = document.querySelector('form#new_user .form-inputs');
 const formActions = document.querySelector('form#new_user .form-actions');
+let schooCodeValid = false;
 
 const validateSecondStepUserSignUp = () => {
   hidePreviousStep();
   injectNewElements();
-  validateSchoolCode();
+  // validateSchoolCode();
   buttonActions();
 }
 
@@ -39,15 +41,31 @@ const injectNewElements = () => {
 }
 
 const validateSchoolCode = () => {
-  const schoolCodeInput = document.querySelector('form#new_user .user_school_code #user_school_code');
+  const schoolCodeInput =  document.querySelector('form#new_user .user_school_code #user_school_code');
+  const schoolCode = document.querySelector('form#new_user .user_school_code #user_school_code').value;
+  const errorMessage = form.querySelector('p');
 
-  schoolCodeInput.addEventListener('blur', () => {
-    if (schoolCodeInput.value.length == 10) {
-      schoolCodeInput.classList.remove('is-invalid')
-      schoolCodeInput.classList.add('is-valid')
+  axios.post('/fetch_for_sign_up', {
+    school_code: schoolCode
+  })
+  .then((data) => {
+    console.log(data.data)
+    if (data.data.length == 0) {
+      schoolCodeInput.classList.remove('is-valid');
+      schoolCodeInput.classList.add('is-invalid');
+      if (errorMessage) {
+        errorMessage.remove();
+      }
+      schoolCodeInput.insertAdjacentHTML('afterend', '<p>Invalid School Code</p>');
+      form.querySelector('p').style.color = 'red';
+      schooCodeValid = false;
     } else {
-      schoolCodeInput.classList.remove('is-valid')
-      schoolCodeInput.classList.add('is-invalid')
+      schoolCodeInput.classList.remove('is-invalid');
+      schoolCodeInput.classList.add('is-valid');
+      if (errorMessage) {
+        errorMessage.remove();
+      }
+      schooCodeValid = true;
     }
   })
 }
@@ -68,10 +86,13 @@ const buttonActions = () => {
         newFormActions.remove();
         schoolCodeInput.remove();
       } else {
-        if (document.querySelector('form#new_user .user_school_code #user_school_code').value.length == 10) {
-          removeTransitionClasses()
-          validateThirdStepUserSignUp();
-        }
+        validateSchoolCode();
+        setTimeout(() => {
+          if (schooCodeValid) {
+            removeTransitionClasses();
+            validateThirdStepUserSignUp();
+          }
+        }, 500)
       }
     })
   })
