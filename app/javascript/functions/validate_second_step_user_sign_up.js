@@ -5,10 +5,19 @@ const formInputs = document.querySelector('form#new_user .form-inputs');
 const formActions = document.querySelector('form#new_user .form-actions');
 
 const validateSecondStepUserSignUp = () => {
+  hidePreviousStep();
+  injectNewElements();
+  validateSchoolCode();
+  buttonActions();
+}
+
+const hidePreviousStep = () => {
   form.classList.add('fade-in-right');
   formInputs.setAttribute('hidden', '')
   formActions.setAttribute('hidden', '')
+}
 
+const injectNewElements = () => {
   const schoolCodeInput = `<div class="form-group string required user_school_code">
                              <input class="form-control string required" required="required" aria-required="true" placeholder="Type in your school code" type="text" name="user[school_code]" id="user_school_code">
                            </div>`
@@ -24,9 +33,6 @@ const validateSecondStepUserSignUp = () => {
 
   formInputs.insertAdjacentHTML('afterend', newFormActions);
   formInputs.insertAdjacentHTML('afterend', schoolCodeInput);
-
-  validateSchoolCode()
-  buttonActions()
 }
 
 const validateSchoolCode = () => {
