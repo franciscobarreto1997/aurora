@@ -1,7 +1,4 @@
 import axios from 'axios';
-import validateThirdStepUserSignUp from './validate_third_step_user_sign_up';
-
-
 
 const form = document.querySelector('form#new_user');
 const formInputs = document.querySelector('form#new_user .form-inputs');
@@ -28,17 +25,22 @@ const injectNewElements = () => {
                              <input class="form-control string required" required="required" aria-required="true" placeholder="Type in your teacher code" type="text" name="user[teacher_code]" id="user_teacher_code">
                            </div>`
 
+  const schoolCodeInput = `<div class="form-group string required user_school_code" hidden>
+                            <input class="form-control string required" required="required" aria-required="true" placeholder="Type in your school code" type="text" name="user[school_code]" id="user_school_code">
+                          </div>`
+
   const previousButton = `<input type="submit" name="commit" value="Previous" id="step-2-previous-btn" class="btn" data-disable-with="Previous">`
-  const nextButton = `<input type="submit" name="commit" value="Next" id="step-2-next-btn" class="btn" data-disable-with="Next">`
+  const createButton = `<input type="submit" name="commit" value="Create Account" id="step-2-next-btn" class="btn" data-disable-with="Create Account">`
 
 
   const newFormActions = `<div class="new-form-actions">
                             ${previousButton}
-                            ${nextButton}
+                            ${createButton}
                           </div>`
 
   formInputs.insertAdjacentHTML('afterend', newFormActions);
   formInputs.insertAdjacentHTML('afterend', teacherCodeInput);
+  formInputs.insertAdjacentHTML('afterend', schoolCodeInput);
 }
 
 const validate = () => {
@@ -66,6 +68,8 @@ const validate = () => {
       if (errorMessage) {
         errorMessage.remove();
       }
+      document.querySelector('.user_school_code #user_school_code').value = data.data.code;
+      teacherCodeInput.remove();
       teacherCodeValid = true;
     }
   })
@@ -91,7 +95,7 @@ const buttonActions = () => {
         setTimeout(() => {
           if (teacherCodeValid) {
             removeTransitionClasses();
-            // validateThirdStepUserSignUp();
+            form.submit();
           }
         }, 500)
       }
