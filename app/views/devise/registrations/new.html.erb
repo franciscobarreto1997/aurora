@@ -27,12 +27,12 @@
         <div class="form-group radio_buttons required user_role">
           <input type="hidden" name="user[role_id]" value="">
           <div class="form-check">
-            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="13" name="user[role_id]" id="user_role_id_13">
-            <label class="form-check-label collection_radio_buttons" for="user_role_id_13">Student</label>
+            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="<%= Role.first.id %>" name="user[role_id]" id="user_role_id_<%= Role.first.id %>">
+            <label class="form-check-label collection_radio_buttons" for="user_role_id_<%= Role.first.id %>">Student</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="14" name="user[role_id]" id="user_role_id_14">
-            <label class="form-check-label collection_radio_buttons" for="user_role_id_14">Teacher</label>
+            <input class="form-check-input radio_buttons required" required="required" aria-required="true" type="radio" value="<%= Role.second.id %>" name="user[role_id]" id="user_role_id_<%= Role.second.id %>">
+            <label class="form-check-label collection_radio_buttons" for="user_role_id_<%= Role.second.id %>">Teacher</label>
           </div>
         </div>
         <%= f.input :password,

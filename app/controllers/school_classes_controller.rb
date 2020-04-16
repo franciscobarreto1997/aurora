@@ -25,11 +25,6 @@ class SchoolClassesController < ApplicationController
 
   def fetch_for_sign_up
     school_code = params[:school_code]
-    classes = SchoolClass.where(school_code: school_code)
-    classes_arr = []
-    classes.each do |school_class|
-      classes_arr << school_class
-    end
-    render json: classes_arr
+    render json: SchoolClass.where(school_code: school_code)
   end
 end
