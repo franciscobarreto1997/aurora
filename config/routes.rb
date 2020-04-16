@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :schools
   resources :school_classes
   devise_for :school_admins
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
 
   post 'fetch_school_classes_for_sign_up', to: 'school_classes#fetch_school_classes_for_sign_up'
