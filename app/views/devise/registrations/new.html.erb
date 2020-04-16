@@ -67,7 +67,7 @@
           <%= f.input :password,
                       required: true,
                       label: false,
-                      placeholder: "Your password",
+                      placeholder: "Your password (min 8 characters with 1 number)",
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: true,
@@ -77,7 +77,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Next" %>
+          <%= f.button :submit, "Create Account" %>
         </div>
       <% end %>
     <%= link_to "Already a School Admin? Login", new_school_admin_session_path, class: "sign-up-page-link" %>
