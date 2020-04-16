@@ -1,4 +1,5 @@
 import validateSecondStepUserSignUp from './validate_second_step_user_sign_up';
+import validateTeacherCode from './validate_teacher_code';
 
 let validations = [];
 
@@ -6,6 +7,7 @@ const validateFirstStepUserSignUp = () => {
   const nextButton = document.getElementById('step-1-next-btn');
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
   const form = document.querySelector('form#new_user');
+  const teacherButton = document.querySelectorAll('.user_role .form-check')[1];
 
   if (nextButton) {
     validateInputs(formGroups);
@@ -18,7 +20,11 @@ const validateFirstStepUserSignUp = () => {
         if (form.classList.contains('fade-in-left')) {
           form.classList.remove('fade-in-left');
         }
-        validateSecondStepUserSignUp();
+        if (teacherButton.classList.contains('role-btn-selected')) {
+          validateTeacherCode();
+        } else {
+          validateSecondStepUserSignUp();
+        }
       }
     })
   }

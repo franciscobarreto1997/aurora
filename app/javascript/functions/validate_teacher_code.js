@@ -1,12 +1,14 @@
-import validateThirdStepUserSignUp from './validate_third_step_user_sign_up';
 import axios from 'axios';
+import validateThirdStepUserSignUp from './validate_third_step_user_sign_up';
+
+
 
 const form = document.querySelector('form#new_user');
 const formInputs = document.querySelector('form#new_user .form-inputs');
 const formActions = document.querySelector('form#new_user .form-actions');
-let schooCodeValid = false;
+let teacherCodeValid = false;
 
-const validateSecondStepUserSignUp = () => {
+const validateTeacherCode = () => {
   hidePreviousStep();
   injectNewElements();
   buttonActions();
@@ -22,8 +24,8 @@ const hidePreviousStep = () => {
 }
 
 const injectNewElements = () => {
-  const schoolCodeInput = `<div class="form-group string required user_school_code">
-                             <input class="form-control string required" required="required" aria-required="true" placeholder="Type in your school code" type="text" name="user[school_code]" id="user_school_code">
+  const teacherCodeInput = `<div class="form-group string required user_teacher_code">
+                             <input class="form-control string required" required="required" aria-required="true" placeholder="Type in your teacher code" type="text" name="user[teacher_code]" id="user_teacher_code">
                            </div>`
 
   const previousButton = `<input type="submit" name="commit" value="Previous" id="step-2-previous-btn" class="btn" data-disable-with="Previous">`
@@ -36,35 +38,35 @@ const injectNewElements = () => {
                           </div>`
 
   formInputs.insertAdjacentHTML('afterend', newFormActions);
-  formInputs.insertAdjacentHTML('afterend', schoolCodeInput);
+  formInputs.insertAdjacentHTML('afterend', teacherCodeInput);
 }
 
-const validateSchoolCode = () => {
-  const schoolCodeInput =  document.querySelector('form#new_user .user_school_code #user_school_code');
-  const schoolCode = document.querySelector('form#new_user .user_school_code #user_school_code').value;
+const validate = () => {
+  const teacherCodeInput =  document.querySelector('form#new_user .user_teacher_code #user_teacher_code');
+  const teacherCode = document.querySelector('form#new_user .user_teacher_code #user_teacher_code').value;
   const errorMessage = form.querySelector('p');
 
   axios.post('/fetch_for_sign_up', {
-    school_code: schoolCode
+    teacher_code: teacherCode
   })
   .then((data) => {
     console.log(data.data)
     if (data.data.length == 0) {
-      schoolCodeInput.classList.remove('is-valid');
-      schoolCodeInput.classList.add('is-invalid');
+      teacherCodeInput.classList.remove('is-valid');
+      teacherCodeInput.classList.add('is-invalid');
       if (errorMessage) {
         errorMessage.remove();
       }
-      schoolCodeInput.insertAdjacentHTML('afterend', '<p>Invalid School Code</p>');
+      teacherCodeInput.insertAdjacentHTML('afterend', '<p>Invalid Teacher Code</p>');
       form.querySelector('p').style.color = 'red';
-      schooCodeValid = false;
+      teacherCodeValid = false;
     } else {
-      schoolCodeInput.classList.remove('is-invalid');
-      schoolCodeInput.classList.add('is-valid');
+      teacherCodeInput.classList.remove('is-invalid');
+      teacherCodeInput.classList.add('is-valid');
       if (errorMessage) {
         errorMessage.remove();
       }
-      schooCodeValid = true;
+      teacherCodeValid = true;
     }
   })
 }
@@ -72,7 +74,7 @@ const validateSchoolCode = () => {
 const buttonActions = () => {
   const buttons = document.querySelectorAll('form#new_user .new-form-actions input');
   const newFormActions = document.querySelector('form#new_user .new-form-actions');
-  const schoolCodeInput = document.querySelector('form#new_user .user_school_code');
+  const teacherCodeInput = document.querySelector('form#new_user .user_teacher_code');
 
   buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -83,11 +85,11 @@ const buttonActions = () => {
         formInputs.removeAttribute('hidden');
         formActions.removeAttribute('hidden');
         newFormActions.remove();
-        schoolCodeInput.remove();
+        teacherCodeInput.remove();
       } else {
-        validateSchoolCode();
+        validate();
         setTimeout(() => {
-          if (schooCodeValid) {
+          if (teacherCodeValid) {
             removeTransitionClasses();
             validateThirdStepUserSignUp();
           }
@@ -102,7 +104,4 @@ const removeTransitionClasses = () => {
   form.classList.contains('fade-in-right') ? form.classList.remove('fade-in-right') : null
 }
 
-
-export default validateSecondStepUserSignUp;
-
-
+export default validateTeacherCode;
