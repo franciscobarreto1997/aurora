@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def create
-    if params[:user][:role_id] == "14"
+    if params[:user][:role_id] == "14" || params[:user][:role_id] == "2"
       school = School.find_by code: params[:user][:school_code]
       params[:user][:school_class_id] = (SchoolClass.find_by school_id: school.id).id
     end
