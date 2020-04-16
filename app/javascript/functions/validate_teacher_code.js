@@ -46,7 +46,7 @@ const validate = () => {
   const teacherCode = document.querySelector('form#new_user .user_teacher_code #user_teacher_code').value;
   const errorMessage = form.querySelector('p');
 
-  axios.post('/fetch_for_sign_up', {
+  axios.post('/fetch_teachers_codes_for_sign_up', {
     teacher_code: teacherCode
   })
   .then((data) => {
@@ -91,7 +91,7 @@ const buttonActions = () => {
         setTimeout(() => {
           if (teacherCodeValid) {
             removeTransitionClasses();
-            validateThirdStepUserSignUp();
+            // validateThirdStepUserSignUp();
           }
         }, 500)
       }

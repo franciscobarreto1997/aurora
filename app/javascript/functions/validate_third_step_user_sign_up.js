@@ -43,7 +43,7 @@ const insertNewElements = () => {
 const fetchSchoolClasses = () => {
   const schoolValue = document.querySelector('form#new_user .user_school_code #user_school_code').value;
 
-  axios.post('/fetch_for_sign_up', {
+  axios.post('/fetch_school_classes_for_sign_up', {
     school_code: schoolValue
   })
   .then((data) => {

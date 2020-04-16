@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Role.destroy_all
+User.destroy_all
 SchoolClass.destroy_all
+TeacherCode.destroy_all
 School.destroy_all
 SchoolAdmin.destroy_all
 
@@ -31,4 +33,6 @@ School.create!(name: "Escola do Bolinha", code: generate_school_code, school_adm
 SchoolClass.create!(name: "10ºL", school_id: School.first.id, school_code: School.first.code)
 
 SchoolClass.create!(name: "11ºJ", school_id: School.first.id, school_code: generate_school_code)
+
+TeacherCode.create!(code: generate_school_code, school_id: School.first.id)
 

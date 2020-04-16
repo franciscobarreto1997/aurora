@@ -44,7 +44,7 @@ const validateSchoolCode = () => {
   const schoolCode = document.querySelector('form#new_user .user_school_code #user_school_code').value;
   const errorMessage = form.querySelector('p');
 
-  axios.post('/fetch_for_sign_up', {
+  axios.post('/fetch_school_classes_for_sign_up', {
     school_code: schoolCode
   })
   .then((data) => {
