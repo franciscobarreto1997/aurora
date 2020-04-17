@@ -1,6 +1,6 @@
 import disableScroll from 'disable-scroll';
 
-const responsiveNavbar = () => {
+const responsiveLandingPageNavbar = () => {
   const burguerMenu = document.querySelector('.burguer-menu');
   const lines = document.querySelector('.lines');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -34,4 +34,4 @@ const responsiveNavbar = () => {
   }
 }
 
-export default responsiveNavbar;
+export default responsiveLandingPageNavbar;
