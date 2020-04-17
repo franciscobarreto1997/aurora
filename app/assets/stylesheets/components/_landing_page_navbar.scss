@@ -1,8 +1,13 @@
-.navbar {
+.landing-page-navbar {
+  position: relative;
+  display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
   height: 120px;
-  background-color: white;
   z-index: 2;
+  padding: 0.5rem 1rem;
+  background-color: white;
 
   img {
     height: 100px;
@@ -121,7 +126,7 @@
 }
 
 @media (max-width: 1024px) {
-  .navbar {
+  .landing-page-navbar {
     .navbar-items {
       display: none;
     }
