@@ -24,7 +24,6 @@ class SchoolClassesController < ApplicationController
   end
 
   def fetch_school_classes_for_sign_up
-    school_code = params[:school_code]
-    render json: SchoolClass.where(school_code: school_code)
+    render json: SchoolClass.where(school_code: params[:school_code])
   end
 end
