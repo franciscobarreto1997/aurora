@@ -1,6 +1,6 @@
 class SchoolClassesController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:fetch_school_classes_for_sign_up]
 
   def index
   end

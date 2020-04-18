@@ -4,7 +4,7 @@ const selectRoleButton = () => {
   const form = document.querySelector('form#new_user')
   const roleButtons = document.querySelectorAll('.user_role .form-check');
 
-  if (roleButtons) {
+  if (form) {
     axios.get('/fetch_roles_for_sign_up')
     .then((data) => {
       console.log(data.data)
