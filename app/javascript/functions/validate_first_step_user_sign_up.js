@@ -1,5 +1,6 @@
 import validateSecondStepUserSignUp from './validate_second_step_user_sign_up';
 import validateTeacherCode from './validate_teacher_code';
+import selectRoleButton from './select_role_button';
 
 let validations = [];
 
@@ -8,6 +9,8 @@ const validateFirstStepUserSignUp = () => {
   const formGroups = document.querySelectorAll('form#new_user .form-inputs .form-group')
   const form = document.querySelector('form#new_user');
   const teacherButton = document.querySelectorAll('.user_role .form-check')[1];
+
+  // selectRoleButton();
 
   if (nextButton) {
     validateInputs(formGroups);

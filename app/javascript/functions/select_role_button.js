@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 const selectRoleButton = () => {
+  const form = document.querySelector('form#new_user')
   const roleButtons = document.querySelectorAll('.user_role .form-check');
 
   if (roleButtons) {
     axios.get('/fetch_roles_for_sign_up')
     .then((data) => {
+      console.log(data.data)
       const studentRoleID = data.data[0].id;
       const teacherRoleID = data.data[1].id;
 
