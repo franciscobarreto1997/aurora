@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-  scope :dashboard do
-    resources :teacher_codes, only: [:index, :new, :create, :destroy]
-    resources :schools, except: [:index]
-    resources :school_classes
+
+  authenticate :school_admin do
+    scope :dashboard do
+      resources :teacher_codes, only: [:index, :new, :create, :destroy]
+      resources :schools, except: [:index]
+      resources :school_classes
+      resources :subjects
+    end
+  end
+
+  authenticate :user do
+    scope :dashboard do
+      resources :subjects, only: [:index, :show]
+      resources :lectures
+      resources :messages
+    end
   end
 
   devise_for :school_admins, controllers: { registrations: 'school_admins/registrations' }
