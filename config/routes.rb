@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   authenticate :school_admin do
     scope :dashboard do
       resources :teacher_codes, only: [:index, :new, :create, :destroy]
-      resources :schools, except: [:index]
-      resources :school_classes
+      resources :schools, only: [:new, :create] do
+        resources :school_classes
+      end
       resources :subjects
     end
   end
