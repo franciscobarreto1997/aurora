@@ -1,4 +1,7 @@
-<%= simple_form_for @school do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class="new-school-container">
+  <%= simple_form_for @school do |f| %>
+    <%= f.input :name, placeholder: "Type in your School Name", label: false %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+

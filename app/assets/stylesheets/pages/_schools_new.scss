@@ -1,0 +1,29 @@
+.new-school-container {
+  display: flex;
+  justify-content: center;
+  #new_school {
+    margin-top: 100px;
+    width: 400px;
+    text-align: center;
+
+    .btn {
+      background-color: #0094D2;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .new-school-container {
+    padding: 0vh 3vw;
+    #new_school {
+      width: 100%;
+
+      .btn {
+        width: 50%;
+        margin-top: 10px;
+      }
+    }
+  }
+}
