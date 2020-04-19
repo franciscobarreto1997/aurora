@@ -1,2 +1,16 @@
-<h1>SchoolClasses#index</h1>
-<p>Find me in app/views/school_classes/index.html.erb</p>
+<div class="school-classes-index">
+  <h3><%= @school.name %></h3>
+  <div class="school-classes">
+    <% if @school_classes %>
+      <% @school_classes.each do |school_class| %>
+      <div class="school_class">
+        <%= school_class.name %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= simple_form_for([ @school, @school_class ]) do |f| %>
+    <%= f.input :name, label: false, placeholder: "Type in a class name" %>
+    <%= f.button :submit, value: "Create Class" %>
+  <% end %>
+</div>

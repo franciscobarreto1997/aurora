@@ -13,7 +13,6 @@ import validateFirstStepUserSignUp from '../functions/validate_first_step_user_s
 import validateSchoolAdminSignUp from '../functions/validate_school_admin_sign_up';
 import toggleNavbarMenu from '../functions/toggle_navbar_menu';
 
-
 responsiveLandingPageNavbar();
 animateOnScroll();
 animeLandingPage();
