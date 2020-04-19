@@ -1,0 +1,11 @@
+<div class="logo">
+  <% if current_user %>
+    <%= link_to subjects_path do %>
+      <%= image_tag 'aurora-logo-blue' %>
+    <% end %>
+  <% else %>
+    <%= link_to schools_path do %>
+      <%= image_tag 'aurora-logo-blue' %>
+    <% end %>
+  <% end %>
+</div>

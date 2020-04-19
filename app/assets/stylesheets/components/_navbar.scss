@@ -1,6 +1,25 @@
 .navbar {
-  height: 50px;
+  height: 55px;
   background-color: white;
   border-bottom: 2px solid #0094D2;
   width: 100%;
+  padding: 0;
+
+
+  #search-input {
+    width: 400px;
+    border: 1px solid #CFD7E6;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 15px;
+    color: #64758E;
+
+  }
+
+  i {
+    font-size: 30px;
+    color: #797A7F;
+    cursor: pointer;
+    margin-right: 13px;
+  }
 }
