@@ -18,8 +18,57 @@
 
   i {
     font-size: 30px;
-    color: #797A7F;
+    color: #CDD7E7;
     cursor: pointer;
     margin-right: 13px;
+  }
+}
+
+.navbar-menu {
+  background-color: white;
+  width: 230px;
+  height: 250px;
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+  margin-right: 10px;
+  -webkit-box-shadow: 0 3px 20px rgba(89, 105, 129, .3), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgba(89, 105, 129, .1);
+  -moz-box-shadow: 0 3px 20px rgba(89, 105, 129, .3), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgba(89, 105, 129, .1);
+  box-shadow: 0 3px 20px rgba(89, 105, 129, .3), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgba(89, 105, 129, .1);
+
+  .user-info {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: #CDD7E7;
+      font-size: 40px;
+    }
+
+    #email {
+      color: #A7B2C3;
+      font-size: 14px;
+    }
+  }
+
+  .links {
+    width: 100%;
+    height: 50%;
+    border-top: 1px solid #EEF1F6;
+
+    .link {
+      display: flex;
+      border-bottom: 1px solid #EEF1F6;
+      width: 100%;
+      height: 33.3%;
+      align-items: center;
+      padding: 10px 10px;
+      text-decoration: none;
+      color: #0094D2;
+    }
   }
 }
