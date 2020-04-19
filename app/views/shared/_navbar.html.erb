@@ -1,5 +1,18 @@
+<% user = current_user ? current_user : current_school_admin %>
 <div class="navbar">
   <%= render 'shared/logo' %>
   <%= render 'shared/search' %>
   <i class="fas fa-user-circle"></i>
+</div>
+<div class="navbar-menu" hidden>
+  <div class="user-info">
+    <i class="fas fa-user-circle"></i>
+    <% if user.class == User  %>
+      <p><%= user.first_name %></p>
+    <% end %>
+    <p id="email"><%= user.email %></p>
+  </div>
+  <div class="links">
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link" %>
+  </div>
 </div>
