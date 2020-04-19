@@ -92,3 +92,17 @@
     }
   }
 }
+
+@media (max-width: 550px) {
+  .navbar {
+    #search-input {
+      width: 40vw;
+    }
+  }
+  .navbar-menu {
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    left: 0;
+  }
+}
