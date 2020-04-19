@@ -69,6 +69,26 @@
       padding: 10px 10px;
       text-decoration: none;
       color: #0094D2;
+
+      .icon {
+        width: 20%;
+        height: 100%;
+        text-align: center;
+
+        i {
+          font-size: 25px;
+        }
+      }
+
+      .link-name {
+        width: 80%;
+        height: 100%;
+
+        p {
+          font-size: 15px;
+          font-weight: 300;
+        }
+      }
     }
   }
 }
