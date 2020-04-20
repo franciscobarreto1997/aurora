@@ -15,6 +15,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'turbolinks'
+gem 'turbolinks-source'
+gem 'turbolinks_render'
 
 
 group :development do
