@@ -70,6 +70,10 @@
       text-decoration: none;
       color: #0094D2;
 
+      &:hover {
+        background-color: #F7F8FB;
+      }
+
       .icon {
         width: 20%;
         height: 100%;

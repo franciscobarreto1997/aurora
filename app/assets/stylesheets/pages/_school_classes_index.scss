@@ -8,7 +8,33 @@
     color: #0094D2;
   }
 
+  .school-classes {
+    margin-top: 70px;
+    width: 100%;
+    .school-class {
+     display: flex;
+     align-items: center;
+     width: 100%;
+     height: 50px;
+     border-bottom: 1px solid #EEF1F6;
+
+     &:hover {
+      background-color: #FBFBFD;
+      cursor: pointer;
+     }
+      i {
+        color: #0094D2;
+      }
+
+      #class-name {
+        color: #535B67;
+        margin: 0;
+      }
+    }
+  }
+
   #new_school_class {
+    margin-top: 50px;
     width: 300px;
     text-align: center;
 
