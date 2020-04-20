@@ -9,7 +9,7 @@
       <% end %>
     <% end %>
   </div>
-  <%= simple_form_for([ @school, @school_class ]) do |f| %>
+  <%= simple_form_for([ @school, @school_class ], remote: true) do |f| %>
     <%= f.input :name, label: false, placeholder: "Type in a class name" %>
     <%= f.button :submit, value: "Create Class" %>
   <% end %>

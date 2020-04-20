@@ -8,7 +8,7 @@ class SchoolsController < ApplicationController
     @school.code = generate_school_code
     @school.school_admin = current_school_admin
     if @school.save
-      redirect_to new_school_school_class_path(@school)
+      redirect_to school_school_classes_path(@school)
     else
       p @school.errors
       render :new
