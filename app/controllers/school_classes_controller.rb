@@ -4,7 +4,6 @@ class SchoolClassesController < ApplicationController
 
   def index
     @school = School.find(params[:school_id])
-    p "SCHOOL => #{@school.name}"
     @school_classes = SchoolClass.where(school_id: @school.id)
     @school_class = SchoolClass.new
   end
@@ -17,11 +16,12 @@ class SchoolClassesController < ApplicationController
     @school_class = SchoolClass.new(school_class_params)
     @school_class.school = @school
     @school_class.school_code = @school.code
+    @school_classes = SchoolClass.where(school_id: @school.id)
     if @school_class.save
       redirect_to school_school_classes_path
     else
       p @school_class.errors
-      render "school_classes/index"
+      render "school_classes/index", locals: { school_classes: @school_classes }
     end
   end
 

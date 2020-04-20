@@ -15,8 +15,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-# gem 'turbolinks'
-# gem 'turbolinks_render'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

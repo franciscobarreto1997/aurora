@@ -25,3 +25,4 @@ toggleNavbarMenu();
 window.addEventListener('resize', () => {
   animeLandingPage();
 })
+
