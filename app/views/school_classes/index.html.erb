@@ -4,8 +4,15 @@
     <% if @school_classes %>
       <% @school_classes.each do |school_class| %>
       <div class="school-class">
-        <i class="fas fa-users-class"></i>
-        <p id="class-name"><%= school_class.name %></p>
+        <div class="icon">
+          <i class="fas fa-square"></i>
+        </div>
+        <p id="class-name">
+          <%= school_class.name %>
+        </p>
+        <div class="student-count">
+         <p><%= User.where(school_class_id: school_class.id).count %> students</p>
+        </div>
       </div>
       <% end %>
     <% end %>

@@ -22,13 +22,33 @@
       background-color: #FBFBFD;
       cursor: pointer;
      }
-      i {
-        color: #0094D2;
+
+     .icon {
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        i {
+          color: #0094D2;
+          font-size: 25px;
+        }
       }
 
       #class-name {
         color: #535B67;
         margin: 0;
+        width: 70%;
+      }
+
+      .student-count {
+        color: #535B67;
+        width: 20%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 25px;
+          p {
+            margin: 0;
+          }
       }
     }
   }
