@@ -1,0 +1,66 @@
+#student-invitation-modal .modal-content {
+  height: 500px;
+  width: 500px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: none;
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-body {
+    padding:25px 45px;
+
+    .header {
+      width: 100%;
+      text-align: center;
+
+      h2 {
+        color: #0094D2;
+      }
+    }
+
+    .form {
+      margin-top: 50px;
+      width: 100%;
+      text-align: center;
+
+      #invite_students_form {
+        .email-input {
+          width: 350px;
+          padding: 5px 10px;
+          color: #535B67;
+          margin-top: 10px;
+        }
+
+        .form-actions {
+          #invite-btn {
+            text-decoration: none;
+            color: white;
+            width: 40%;
+            height: 40px;
+            background-color: #0094D2;
+            border-radius: 5px;
+            border: 1px solid #0094D2;
+            margin-top: 20px;
+            transition: .5s all;
+          }
+
+          #add-btn {
+            text-decoration: none;
+            color: #0094D2;
+            width: 40%;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #0094D2;
+            margin-top: 20px;
+            transition: .5s all;
+          }
+        }
+      }
+    }
+  }
+
+}
