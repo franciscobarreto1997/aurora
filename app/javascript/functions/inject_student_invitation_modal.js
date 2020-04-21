@@ -15,7 +15,31 @@ const inject = (button) => {
   const schoolClassName = button.dataset.schoolClassName;
   if (modal) {
     modal.querySelector('.modal-body .header h2').innerText = `Invite students for ${schoolClassName}`;
+    buttonActions(modal);
   }
+}
+
+const buttonActions = (modal) => {
+  const buttons = modal.querySelectorAll('.form .form-actions input');
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (event.target.id == "add-btn") {
+        insertNewInput();
+        return;
+      }
+      sendInvitation();
+    })
+  })
+}
+
+const insertNewInput = () => {
+  const form = document.getElementById('invite_students_form');
+  form.insertAdjacentHTML('afterbegin', `<input type="text" class="email-input" name="student_email" placeholder="Type in the student's email">`)
+}
+
+const sendInvitation = () => {
+  console.log("send invitation")
 }
 
 export default injectStudentInvitationModal;

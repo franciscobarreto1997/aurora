@@ -79,33 +79,3 @@
     }
   }
 }
-
-#student-invitation-modal .modal-content {
-  height: 500px;
-  width: 500px;
-  border: 1px solid white;
-  border-radius: 10px;
-  box-shadow: none;
-
-  .modal-header {
-    border-bottom: none;
-  }
-
-  .modal-body {
-    padding:25px 45px;
-
-    .header {
-      width: 100%;
-      text-align: center;
-
-      h2 {
-        color: #0094D2;
-      }
-    }
-
-    .form {
-
-    }
-  }
-
-}
