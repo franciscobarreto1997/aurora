@@ -14,8 +14,11 @@
          <p><%= User.where(school_class_id: school_class.id).count %> students</p>
         </div>
         <div class="add-students">
-          <button id="add-students-btn" data-toggle="modal" data-target="#exampleModal">
-            Add Students
+          <button id="add-students-btn"
+                  data-toggle="modal"
+                  data-target="#student-invitation-modal"
+                  data-school-class-name="<%= school_class.name %>">
+            Invite Students
           </button>
         </div>
       </div>
@@ -27,21 +30,23 @@
     <%= f.button :submit, value: "Create Class" %>
   <% end %>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="student-invitation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="header">
+          <h2>Invite Students</h2>
+        </div>
+        <div class="form">
+         <form>
+          <input type="text" id="email-input" name="student_email"><br>
+        </form>
+        </div>
       </div>
     </div>
   </div>
