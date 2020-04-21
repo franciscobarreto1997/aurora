@@ -1,5 +1,3 @@
-// require("@rails/ujs").start()
-// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -13,6 +11,8 @@ import selectRoleButton from '../functions/select_role_button';
 import validateFirstStepUserSignUp from '../functions/validate_first_step_user_sign_up';
 import validateSchoolAdminSignUp from '../functions/validate_school_admin_sign_up';
 import toggleNavbarMenu from '../functions/toggle_navbar_menu';
+import injectStudentInvitationModal from '../functions/inject_student_invitation_modal';
+
 
 responsiveLandingPageNavbar();
 animateOnScroll();
@@ -22,6 +22,7 @@ selectRoleButton();
 validateFirstStepUserSignUp();
 validateSchoolAdminSignUp();
 toggleNavbarMenu();
+injectStudentInvitationModal();
 
 window.addEventListener('resize', () => {
   animeLandingPage();

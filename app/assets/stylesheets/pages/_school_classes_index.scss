@@ -37,7 +37,7 @@
       #class-name {
         color: #535B67;
         margin: 0;
-        width: 70%;
+        width: 50%;
       }
 
       .student-count {
@@ -49,6 +49,20 @@
           p {
             margin: 0;
           }
+      }
+
+      .add-students {
+        width: 20%;
+        text-align: center;
+
+        #add-students-btn {
+          text-decoration: none;
+          color: white;
+          background-color: #0094D2;
+          border-radius: 3px;
+          border: none;
+          padding: 5px 15px;
+        }
       }
     }
   }
@@ -64,4 +78,15 @@
       border-radius: 5px;
     }
   }
+}
+
+#student-invitation-modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  background-color: grey;
 }
