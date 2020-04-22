@@ -35,7 +35,9 @@ const buttonActions = (modal) => {
 
 const insertNewInput = () => {
   const form = document.getElementById('invite_students_form');
+  const inviteButton = document.getElementById('invite-btn');
   form.insertAdjacentHTML('afterbegin', `<input type="text" class="email-input" name="student_email" placeholder="Type in the student's email">`)
+  inviteButton.value = 'Invite All';
 }
 
 const sendInvitation = () => {
